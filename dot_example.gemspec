@@ -9,8 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Stephen Mariano Cabrera"]
   spec.email         = ["stephen.m.cabrera@gmail.com"]
 
-  spec.summary       = DotExample::SUMMARY
-  spec.description   = DotExample::DESCRIPTION
+  spec.description = spec.summary = DotExample::SUMMARY
   spec.homepage      = "https://www.github.com/smcabrera/dot_example"
   spec.license       = "MIT"
 
