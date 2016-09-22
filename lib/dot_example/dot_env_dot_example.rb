@@ -10,35 +10,36 @@ class DotEnvDotExample
     if keys_new_to_example.any?
       print_new_keys_message
       File.open(filename, "a") do |file|
-        file.puts keys_new_to_example
+        file.puts keys_new_to_example.map { |key| "#{key}=" }
       end
     end
   end
 
   def keys_new_to_example
-    dot_env.keys - keys
+    dot_env.keys.reject do |key|
+      keys.map(&:chomp).include? key
+    end
   end
 
   def print_new_keys_message
     puts Paint[
-      "New variables added to #{filename}\n#{keys_new_to_example}",
+      "New variables added to #{filename}",
       :green
     ]
-    #Paint['Title:', :green]
+    puts keys_new_to_example
   end
 
   def missing_keys
-    keys.reject do |key|
-      dot_env.keys.include?(key)
-    end
+    keys.reject { |key| dot_env.keys.include?(key) } 
   end
 
   def print_missing_keys_message
     if missing_keys.any?
       puts Paint[
-        "missing ENV variables from #{dot_env.filename}\n#{missing_keys}", 
+        "missing ENV variables from #{dot_env.filename}", 
         :green
       ]
+      puts missing_keys
     end
   end
 

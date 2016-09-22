@@ -68,7 +68,7 @@ describe DotEnvDotExample do
     end
   end
 
-  describe 'keys_to_add' do
+  describe '#keys_new_to_example' do
     context '.env contains new keys that .env.example did not have' do
       it 'returns the new keys' do
         allow(File).to receive(:readlines).with(".env").and_return(
