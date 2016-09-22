@@ -17,8 +17,7 @@ command :setup do |c|
   #c.example 'description', 'command example'
   #c.option '--some-switch', 'Some switch that does something'
   c.action do |args, options|
-    dot_env_dot_example = DotEnvDotExample.new
-    DotExample.add_pre_commit_hook(dot_env_dot_example)
+    DotExample.add_pre_commit_hook
     DotExample.add_post_checkout_hook
   end
 end

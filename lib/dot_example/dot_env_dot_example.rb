@@ -20,10 +20,11 @@ class DotEnvDotExample
   end
 
   def print_new_keys_message
-    puts "*" * 60 
-    puts "New variables added to #{filename}"
-    puts keys_new_to_example
-    puts "*" * 60 
+    puts Paint[
+      "New variables added to #{filename}\n#{keys_new_to_example}",
+      :green
+    ]
+    #Paint['Title:', :green]
   end
 
   def missing_keys
@@ -34,10 +35,10 @@ class DotEnvDotExample
 
   def print_missing_keys_message
     if missing_keys.any?
-      puts "*" * 60 
-      puts "missing ENV variables from #{dot_env.filename}"
-      puts missing_keys
-      puts "*" * 60 
+      puts Paint[
+        "missing ENV variables from #{dot_env.filename}\n#{missing_keys}", 
+        :green
+      ]
     end
   end
 
