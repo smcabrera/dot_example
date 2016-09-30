@@ -9,7 +9,7 @@ class DotEnv
   def key_lines
     keys.map { |key| key + "=" }.join("\n")
   end
-  
+
   def lint!
     unless line.match(/^[^=\s]*=[^=\s]*$/)
       # TODO: Don't know if this is the best error message

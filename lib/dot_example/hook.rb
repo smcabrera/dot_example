@@ -31,7 +31,7 @@ class Hook
   end
 
   def write!
-    unless contains_steps? 
+    unless contains_steps?
       File.open(filepath, "a") do |file|
         file.puts steps
       end

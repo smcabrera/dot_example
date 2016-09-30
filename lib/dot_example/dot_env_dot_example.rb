@@ -30,13 +30,13 @@ class DotEnvDotExample
   end
 
   def missing_keys
-    keys.reject { |key| dot_env.keys.include?(key) } 
+    keys.reject { |key| dot_env.keys.include?(key) }
   end
 
   def print_missing_keys_message
     if missing_keys.any?
       puts Paint[
-        "missing ENV variables from #{dot_env.filename}", 
+        "missing ENV variables from #{dot_env.filename}",
         :green
       ]
       puts missing_keys
@@ -59,7 +59,7 @@ class DotEnvDotExample
   end
 
   def lines
-    unless Dir.glob(filename).any? 
+    unless Dir.glob(filename).any?
       `touch #{filename}`
     end
     File.readlines(filename)
