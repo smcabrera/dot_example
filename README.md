@@ -29,6 +29,7 @@ dot_example setup
 And you're done. That was easy!
 
 Running this setup script will do the following:
+
 1. Create a new pre-commit git hook that will add the keys from your `.env` file to a `.env.example` file whenever you create a new commit.
 2. Create a new post-checkout git hook that will check for new variables in the `.env.example` whenever you checkout a branch.
 3. Create or add to a bin/setup file so that this setup script will be run automatically whenever anyone runs `./bin/setup`
