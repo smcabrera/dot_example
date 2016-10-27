@@ -52,7 +52,7 @@ and then you won't even have to manually run `setup` just have everyone run `./b
 
 ### Sync
 ```
-$ dot_example snyc
+$ dot_example sync
 ```
 sync will take the keys to the ENV variables are in your `.env` file and write them to a `.env.example` file. By keeping _this_ file in source control rather than the actual `.env` file you can make sure that other team members are always up to date on which ENV variables they are missing.
 
