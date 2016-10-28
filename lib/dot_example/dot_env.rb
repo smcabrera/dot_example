@@ -1,20 +1,14 @@
 class DotEnv
-  def initialize(filename = nil)
+  def initialize(filename = nil, lines = nil)
     @filename = filename || ".env"
+    @lines = lines || File.readlines(@filename)
     create_file_if_does_not_exist
   end
 
-  attr_reader :filename
+  attr_reader :filename, :lines
 
   def key_lines
     keys.map { |key| key + "=" }.join("\n")
-  end
-  
-  def lint!
-    unless line.match(/^[^=\s]*=[^=\s]*$/)
-      # TODO: Don't know if this is the best error message
-        raise "Invalid Environment variable defintion"
-    end
   end
 
   def keys
@@ -33,11 +27,5 @@ class DotEnv
     %x[ touch #{filename} ]
     puts Paint[".env created", :green]
     # TODO: Add to .gitignore if it's not there already.
-  end
-
-  private
-
-  def lines
-    File.readlines(filename)
   end
 end
