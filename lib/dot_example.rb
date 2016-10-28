@@ -7,7 +7,7 @@ require_relative "dot_example/pre_commit_hook"
 require_relative "dot_example/post_checkout_hook"
 
 module DotExample
-  def self.add_pre_commit_hook(dot_env_dot_example)
+  def self.add_pre_commit_hook
     pre_commit_hook = PreCommitHook.new
     pre_commit_hook.write!
   end
